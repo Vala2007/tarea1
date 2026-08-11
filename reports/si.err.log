@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\site-packages\nbclient\client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\ASUS\anacondaaa\envs\tarea1\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+
+def factorial(n): # Calcula el factorial de un número n
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+    return resultado
+
+n = int(input("Ingrese el valor de n:")) 
+
+fact = factorial(n) 
+print(f"Factorial de {n}: {fact}")
+
+V1 = np.random.randint(1, 11, size=n) # Genera un vector V1 de tamaño n con números aleatorios entre 1 y 10
+V2 = np.random.randint(1, 11, size=n) # Genera un vector V2 de tamaño n con números aleatorios entre 1 y 10
+V3 = np.where(V1 < V2, 0, 1) # Genera un vector donde cada elemento es 0 si el elemento correspondiente en V1
+# es menor que el de V2, y 1 en caso contrario
+
+matriz = np.concatenate((V1.reshape(-1, 1), V2.reshape(-1, 1), V3.reshape(-1, 1)), axis=1) 
+# Crea una matriz de tamaño n x 3, primera columna es V1, segunda columna es V2, y tercera columna es V3
+print(matriz, "\n")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mimport[39;00m numpy [38;5;28;01mas[39;00m np
+[32m      2[39m 
+[32m      3[39m [38;5;28;01mdef[39;00m factorial(n): [38;5;66;03m# Calcula el factorial de un número n[39;00m
+[32m      4[39m     resultado = [32m1[39m
+
+[31mModuleNotFoundError[39m: No module named 'numpy'
+
